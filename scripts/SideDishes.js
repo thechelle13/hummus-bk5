@@ -1,12 +1,14 @@
-import { getSides, setSide } from "./database.js"
+import { getSides, setSides } from "./database.js"
 
 const sideDishes = getSides()
 
 document.addEventListener("change", (event) => {
     if (event.target.name === "sideDish") {
-        setSide(parseInt(event.target.value))
+        setSides(parseInt(event.target.value))
     }
 })
+
+// When the user selects an item in any of the three columns, the choice should be stored as state in your database.
 
 // Requirement: The radio input elements that this component funcion renders must all have a name of "sideDish"
 export const Sides = () => {
@@ -14,7 +16,7 @@ export const Sides = () => {
 
     const listItems = sideDishes.map(dish => {
         return `<li>
-            <input type="radio" />
+            <input type="radio" name="sideDish" value="${dish.id}"/>${dish.title}
         </li>`
     })
 
@@ -24,3 +26,4 @@ export const Sides = () => {
     return html
 }
 
+// All 6 side dishes should be displayed as radio input options.

@@ -1,20 +1,22 @@
-import { getVeggies, setVeggie } from "./database.js"
+import { getVeggies, setVeggies } from "./database.js"
 
 const veggies = getVeggies()
 
-docment.addEventListener("change", (event) => {
-    if (event.target.name === "vegetable") {
-        setVeggie(event.target.value)
+document.addEventListener("change", (event) => {
+    if (event.target.name === "veggie") {
+        setVeggies(parseInt(event.target.value))
     }
 })
+
+// When the user selects an item in any of the three columns, the choice should be stored as state in your database.
 
 export const Veggies = () => {
 
     let html = `<ul>
         ${
-            vegies.map(vegtable => {
+            veggies.map(vegetable => {
                 return `<li>
-                            <input type="radio" name="vegetable" value="${vegetable.id}" /> ${vegetable.type}
+                            <input type="radio" name="veggie" value="${vegetable.id}" /> ${vegetable.type}
                         </li>`
             }).join("")
         }
@@ -22,3 +24,5 @@ export const Veggies = () => {
 
     return html
 }
+
+//All 9 vegetables should be displayed as radio input options.
